@@ -17,7 +17,8 @@ exports.addResponse = function(req, res){
 
 exports.getResults = function(req, res){
   Answer.findBySurveyId(req.body.id, function(err, answer){
-    var results = answer.syncScore();
+    var results = answer.syncScore(req.user);
+    console.log(results);
     res.send(results);
     res.status(200).end();
   });

@@ -38,14 +38,15 @@ Answer.addResponse = function(o, cb){
   });
 };
 
-Answer.prototype.syncScore = function(client){
+Answer.prototype.syncScore = function(){
   //first make an array of avg responses
   //then make array of arrays of syncScores
   var numQs    = this.responses[0].answers.length,
       numUsers = this.responses.length,
       avgVals  = [],
       values   = [],
-      preds   = [],
+      preds    = [],
+      self     = this,
       sum      = 0;
     //console.log('numQs', numQs);
     //console.log('numUsers', numUsers);
@@ -67,14 +68,14 @@ Answer.prototype.syncScore = function(client){
   //console.log('AVG VALUES ARRAY:', avgVals);
   //now we have array of avg VAls
 
-  var syncScores = this.responses.map(function(user){
+  var syncScores = this.responses.map(function(user, index){
     user = user.answers.map(function(q){
       q = (parseInt(q.prediction) - avgVals[_.indexOf(user.answers, q)]);
       preds.push(parseInt(q.prediction));
       values.push(parseInt(q.value));
       return q.toFixed(2);
     });
-    return {scores:user, userId:client._id};
+    return {scores:user, userId:self.responses[index].userId};
   });
 
   //console.log('syncscore >>>> ', syncScores);

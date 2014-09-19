@@ -9,7 +9,7 @@ h2 this is results
         th
         th(ng-repeat='a in avg track by $index') Q{{$index+1}} {{a}}
     tbody
-      tr(ng-repeat='r in results', ng-class='{last: $last}')
+      tr(ng-repeat='r in results', ng-class='{last: r.userId == user._id}')
         td U{{$index+1}}
-        td(ng-repeat='q in results[$index] track by $index', ng-class='{buddha: q > -1 && q < 1, bozo: q > 1 && q < 4}') {{q}}
+        td(ng-repeat='q in r.scores track by $index', ng-class='{buddha: q > -1 && q < 1, bozo: q > 1 && q < 4}') {{q}}
 
