@@ -1,0 +1,15 @@
+h1 {{title}}
+h2 this is results
+
+#syncScoreTable
+  h1 Sync Scores!
+  table.table
+    thead
+      tr
+        th
+        th(ng-repeat='a in avg track by $index') Q{{$index+1}} {{a}}
+    tbody
+      tr(ng-repeat='r in results', ng-class='{last: $last}')
+        td U{{$index+1}}
+        td(ng-repeat='q in results[$index] track by $index', ng-class='{buddha: q > -1 && q < 1, bozo: q > 1 && q < 4}') {{q}}
+

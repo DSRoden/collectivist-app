@@ -4,10 +4,6 @@
   angular.module('collectivist-app')
   .factory('Survey', ['$http', function($http){
 
-    function getSurveys(){
-      return $http.get('/surveys');
-    }
-
     function getSurvey(id){
       return $http.post('/survey', {id:id});
     }
@@ -16,6 +12,6 @@
       return $http.post('/results', {responses:responses, surveyID:surveyID});
     }
 
-    return {getSurveys:getSurveys, getSurvey:getSurvey, submit:submit};
+    return {getSurvey:getSurvey, submit:submit};
   }]);
 })();

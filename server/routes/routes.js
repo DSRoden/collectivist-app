@@ -34,6 +34,8 @@ module.exports = function(app, express){
   app.get('/surveys', surveys.index);
   app.post('/survey', surveys.fetchSurvey);
   app.post('/results', results.addResponse);
+
+  app.post('/getresults', results.getResults);
   //app.post('/questions', questions.create);
   //app.get('/questions', questions.all);
   //app.post('/makenewsurvey', surveys.create);

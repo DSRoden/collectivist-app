@@ -1,0 +1,7 @@
+h3 {{title}}
+h3(ng-hide='hideSurveys')  Today's Forms
+  ul(ng-show='surveys')
+    li(ng-repeat='survey in surveys') {{survey.title}}
+      a.btn.btn-success(href='/#/surveys/{{survey._id}}') Take Survey
+
+

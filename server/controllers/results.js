@@ -8,12 +8,24 @@ exports.addResponse = function(req, res){
     //console.log('answer>>>>>>>>>', answer);
     req.user.taken = req.user.taken || [];
     req.user.taken.push(req.body.surveyID);
-    var results = answer.syncScore();
     User.collection.save(req.user, function(err, num){
-      res.send({results:results});
+      //res.send({results:results});
+      res.status(200).end();
     });
   });
 };
+
+exports.getResults = function(req, res){
+  Answer.findBySurveyId(req.body.id, function(err, answer){
+    var results = answer.syncScore();
+    res.send(results);
+    res.status(200).end();
+  });
+};
+
+//exports.getResults
+    //var results = answer.syncScore();
+
 
 //exports.getResults = function(req,res){
   //Answer.findBySurveyId(req.params.surveyID, function(err, answer){
