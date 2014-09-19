@@ -38,7 +38,7 @@ Answer.addResponse = function(o, cb){
   });
 };
 
-Answer.prototype.syncScore = function(){
+Answer.prototype.syncScore = function(client){
   //first make an array of avg responses
   //then make array of arrays of syncScores
   var numQs    = this.responses[0].answers.length,
@@ -74,7 +74,7 @@ Answer.prototype.syncScore = function(){
       values.push(parseInt(q.value));
       return q.toFixed(2);
     });
-    return user;
+    return {scores:user, userId:client._id};
   });
 
   //console.log('syncscore >>>> ', syncScores);

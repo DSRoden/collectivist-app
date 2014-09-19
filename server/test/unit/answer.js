@@ -44,12 +44,13 @@ describe('Answer', function(){
     it('should return and array of arrays with synscore', function(done){
       var id = 'f00000000000000000000003';
       Answer.findBySurveyId(id, function(err, answer){
-        var results = answer.syncScore();
+        var results = answer.syncScore({_id:'000000000000'});
         console.log('SS', results.syncScores);
         expect(results.syncScores).to.have.length(3);
-        expect(results.syncScores[0]).to.have.length(5);
-        expect(results.syncScores[0][0]).to.be.closeTo(1.33, 0.01);
-        expect(results.syncScores[1][1]).to.be.closeTo(-0.66, 0.02);
+        expect(results.syncScores[0].scores).to.have.length(5);
+        expect(results.syncScores[0].scores[0]).to.be.closeTo(1.33, 0.01);
+        expect(results.syncScores[0].userId).to.be.ok;
+        expect(results.syncScores[1].scores[1]).to.be.closeTo(-0.66, 0.02);
         done();
       });
     });
