@@ -78,7 +78,7 @@ Answer.prototype.syncScore = function(){
   });
 
   //console.log('syncscore >>>> ', syncScores);
-  return {syncScore:syncScores, avgVals:avgVals};
+  return {syncScores:syncScores, avgVals:avgVals};
 
 };
 

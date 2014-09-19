@@ -2,13 +2,17 @@
   'use strict';
 
   angular.module('collectivist-app')
-  .controller('SurveysCtrl', ['$scope', 'Survey', function($scope, Survey){
+  .controller('SurveysCtrl', ['$scope', 'User', 'Survey', function($scope, User, Survey){
     $scope.surveys = [];
     $scope.questions = [];
     $scope.question = null;
     $scope.responses = [];
     $scope.response = {};
     $scope.qIndex = 0;
+
+    User.user().then(function(response){
+      $scope.user = response.data;
+    });
 
     Survey.getSurveys().then(function(response){
       $scope.showSurvey = false;
@@ -46,8 +50,9 @@
     $scope.submitResponses = function(){
       Survey.submit($scope.responses, $scope.survey._id).then(function(response){
         $scope.formCompleted = false;
-        $scope.results = response.data.results[0];
-        $scope.avg     = response.data.results[1];
+        $scope.results = response.data.results.syncScores;
+        $scope.avg     = response.data.results.avgVals;
+        //console.log('RESPONSE.DATA.RESULTS>>>>>', response.data.results);
         $scope.syncScore = true;
       });
     };

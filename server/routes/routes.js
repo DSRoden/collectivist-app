@@ -30,6 +30,7 @@ module.exports = function(app, express){
   app.delete('/logout', users.logout);
 
   app.use(security.bounce);
+  app.get('/user', users.user);
   app.get('/surveys', surveys.index);
   app.post('/survey', surveys.fetchSurvey);
   app.post('/results', results.addResponse);

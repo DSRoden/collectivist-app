@@ -45,11 +45,11 @@ describe('Answer', function(){
       var id = 'f00000000000000000000003';
       Answer.findBySurveyId(id, function(err, answer){
         var results = answer.syncScore();
-        //console.log('SS', syncScore);
-        expect(results.syncScore).to.have.length(3);
-        expect(results.syncScore[0]).to.have.length(5);
-        expect(results.syncScore[0][0]).to.be.closeTo(1.33, 0.01);
-        expect(results.syncScore[1][1]).to.be.closeTo(-0.66, 0.02);
+        console.log('SS', results.syncScores);
+        expect(results.syncScores).to.have.length(3);
+        expect(results.syncScores[0]).to.have.length(5);
+        expect(results.syncScores[0][0]).to.be.closeTo(1.33, 0.01);
+        expect(results.syncScores[1][1]).to.be.closeTo(-0.66, 0.02);
         done();
       });
     });

@@ -27,7 +27,10 @@ exports.login = function(req, res){
     }
   });
 };
-
+exports.user = function(req, res){
+  res.send(req.user);
+  res.status(200).end();
+};
 exports.logout = function(req, res){
   req.session.destroy(function(){
     res.setHeader('X-Authenticated-User', 'anonymous');
