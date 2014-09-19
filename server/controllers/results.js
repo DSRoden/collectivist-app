@@ -3,7 +3,7 @@
 var Answer = require('../models/answer');
 
 exports.addResponse = function(req, res){
-  Answer.addResponse(req.body, function(err, answer){
+  Answer.addResponse(req, function(err, answer){
     //console.log('answer>>>>>>>>>', answer);
     var results = answer.syncScore();
     //console.log('results>>>>>>>>', results);

@@ -25,11 +25,13 @@ Answer.findBySurveyId = function(id, cb){
 };
 
 Answer.addResponse = function(o, cb){
-  console.log('o.survey ID>>>>>>>>>>>>>>', o.surveyID);
-  console.log('o.responses>>>>>>>>>>>>>>', o.responses);
-  Answer.findBySurveyId(o.surveyID.toString(), function(err, answer){
+  var thisAnswer = {answers:o.body.responses, userId:o.user._id};
+  console.log('o.survey ID>>>>>>>>>>>>>>', o.body.surveyID);
+  console.log('o.responses>>>>>>>>>>>>>>', o.body.responses);
+  Answer.findBySurveyId(o.body.surveyID.toString(), function(err, answer){
+    console.log('THIS ANSWER========', thisAnswer);
+    answer.responses.push(thisAnswer);
     console.log('answer>>>>>>>>>>>>>>', answer);
-    answer.responses.push(o.responses);
     Answer.collection.update({surveyId:answer.surveyId}, {$set:{responses:answer.responses}}, function(){
       cb(err, answer);
     });
@@ -39,13 +41,18 @@ Answer.addResponse = function(o, cb){
 Answer.prototype.syncScore = function(){
   //first make an array of avg responses
   //then make array of arrays of syncScores
-  var numQs    = this.responses[0].length,
+  var numQs    = this.responses[0].answers.length,
       numUsers = this.responses.length,
       avgVals  = [],
       values   = [],
       preds   = [],
       sum      = 0;
+    //console.log('numQs', numQs);
+    //console.log('numUsers', numUsers);
 
+
+//account for userid
+//responses[n].answer instead of responses[
   for(var i = 0; i < numQs; i++){
     this.responses.forEach(addSum);
     avgVals.push((sum/numUsers).toFixed(2));
@@ -53,14 +60,16 @@ Answer.prototype.syncScore = function(){
   }
 
   function addSum(user){
-    sum += parseInt(user[i].value);
+    sum += parseInt(user.answers[i].value);
+    //console.log('user.answers[i].value', user.answers[i].value);
   }
 
+  //console.log('AVG VALUES ARRAY:', avgVals);
   //now we have array of avg VAls
 
   var syncScores = this.responses.map(function(user){
-    user = user.map(function(q){
-      q = (parseInt(q.prediction) - avgVals[_.indexOf(user, q)]);
+    user = user.answers.map(function(q){
+      q = (parseInt(q.prediction) - avgVals[_.indexOf(user.answers, q)]);
       preds.push(parseInt(q.prediction));
       values.push(parseInt(q.value));
       return q.toFixed(2);
@@ -68,8 +77,8 @@ Answer.prototype.syncScore = function(){
     return user;
   });
 
-  //console.log('final >>>> ', syncScores);
-  return [syncScores, avgVals];
+  //console.log('syncscore >>>> ', syncScores);
+  return {syncScore:syncScores, avgVals:avgVals};
 
 };
 
