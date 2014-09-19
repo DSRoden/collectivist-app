@@ -11,6 +11,7 @@
     .when('/dashboard',         {templateUrl:'/views/dashboard/dashboard.html', controller:'DashboardCtrl'})
     .when('/surveys/:surveyId', {templateUrl:'/views/surveys/surveys.html',     controller:'SurveysCtrl'})
     .when('/results/:surveyId', {templateUrl:'/views/results/results.html',     controller:'ResultsCtrl'})
+    .when('/about',   {templateUrl:'/views/about/about.html',     controller:'AboutCtrl'})
     .otherwise({redirectTo:'/'});
 
     $httpProvider.interceptors.push('HttpInterceptor');
