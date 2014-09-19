@@ -1,0 +1,49 @@
+h3(ng-hide='hideSurveys')  Today's Forms
+  ul(ng-show='surveys')
+    li(ng-repeat='survey in surveys') {{survey.title}}
+      button.btn.btn-success(ng-click='loadSurvey(survey._id)') Take Survey
+
+
+#form(ng-hide='!showSurvey')
+  h1 {{question.content}}
+  h4 Question {{qIndex + 1}} of {{questions.length}}
+  h2#valueRadios Give your opinion:
+  input(type='radio', name='value', value=1, ng-model='response.value')
+  span &nbsp; Strongly Disagree &nbsp;
+  input(type='radio', name='value', value=2, ng-model='response.value')
+  span &nbsp; Disagree &nbsp;
+  input(type='radio', name='value', value=3, ng-model='response.value')
+  span &nbsp; Neutral &nbsp;
+  input(type='radio', name='value', value=4, ng-model='response.value')
+  span &nbsp; Agree &nbsp;
+  input(type='radio', name='value', value=5, ng-model='response.value')
+  span &nbsp; Strongly Agree &nbsp;
+  h2#predictionRadios Predict the average response:
+  input(type='radio', name='prediction', value=1, ng-model='response.prediction')
+  span &nbsp; Strongly Disagree &nbsp;
+  input(type='radio', name='prediction', value=2, ng-model='response.prediction')
+  span &nbsp; Disagree &nbsp;
+  input(type='radio', name='prediction', value=3, ng-model='response.prediction')
+  span &nbsp; Neutral &nbsp;
+  input(type='radio', name='prediction', value=4, ng-model='response.prediction')
+  span &nbsp; Agree &nbsp;
+  input(type='radio', name='prediction', value=5, ng-model='response.prediction')
+  span &nbsp; Strongly Agree &nbsp;
+  button.btn.btn-success(ng-click='addResponse()') Submit Answer
+
+#done(ng-show='surveyCompleted')
+  h1 You've completed the survey!
+  button.btn.btn-success(ng-click='submitResponses()') Submit Results
+
+#syncScoreTable(ng-show='syncScore')
+  h1 Sync Scores!
+  table.table
+    thead
+      tr
+        th
+        th(ng-repeat='a in avg track by $index') Q{{$index+1}} {{a}}
+    tbody
+      tr(ng-repeat='r in results', ng-class='{last: $last}')
+        td U{{$index+1}}
+        td(ng-repeat='q in results[$index] track by $index', ng-class='{buddha: q > -1 && q < 1, bozo: q > 1 && q < 4}') {{q}}
+

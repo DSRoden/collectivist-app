@@ -1,5 +1,5 @@
 doctype html
-html(ng-app='mean-template', lang='en')
+html(ng-app='collectivist-app', lang='en')
   head
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
@@ -9,6 +9,7 @@ html(ng-app='mean-template', lang='en')
     link(href='/vendor/fontawesome/css/font-awesome.css', rel='stylesheet')
     link(href='/vendor/toastr/toastr.css', rel='stylesheet')
     link(href='/index.css', rel='stylesheet')
+    link(href='/views/surveys/surveys.css', rel='stylesheet')
   body
     include nav
     .container
@@ -31,7 +32,9 @@ html(ng-app='mean-template', lang='en')
     script(src='/views/register/register.js')
     script(src='/views/login/login.js')
     script(src='/views/logout/logout.js')
+    script(src='/views/surveys/surveys.js')
     script(src='/components/factories/home.js')
+    script(src='/components/factories/survey.js')
     script(src='/components/factories/user.js')
     script(src='/components/factories/http-interceptor.js')
 

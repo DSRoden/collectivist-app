@@ -8,6 +8,9 @@ var morgan         = require('morgan'),
     debug          = require('../lib/debug'),
     security       = require('../lib/security'),
     home           = require('../controllers/home'),
+    surveys        = require('../controllers/surveys'),
+    //questions      = require('../controllers/questions'),
+    results        = require('../controllers/results'),
     users          = require('../controllers/users');
 
 module.exports = function(app, express){
@@ -24,9 +27,18 @@ module.exports = function(app, express){
   app.get('/home', home.index);
   app.post('/register', users.register);
   app.post('/login', users.login);
+  app.delete('/logout', users.logout);
 
   app.use(security.bounce);
-  app.delete('/logout', users.logout);
+  app.get('/surveys', surveys.index);
+  app.post('/survey', surveys.fetchSurvey);
+  app.post('/results', results.addResponse);
+  //app.post('/questions', questions.create);
+  //app.get('/questions', questions.all);
+  //app.post('/makenewsurvey', surveys.create);
+  //app.get('/getnewsurveys', surveys.all);
+
+
 
   console.log('Express: Routes Loaded');
 };

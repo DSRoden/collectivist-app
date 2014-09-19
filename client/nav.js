@@ -1,7 +1,7 @@
 (function(){
   'use strict';
 
-  angular.module('mean-template')
+  angular.module('collectivist-app')
   .controller('NavCtrl', ['$scope', '$localForage', function($scope, $localForage){
     $localForage.getItem('email').then(function(email){
       $scope.email = email;

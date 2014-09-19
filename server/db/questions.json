@@ -1,0 +1,100 @@
+{
+  "_id":{"$oid":"b00000000000000000000001"},
+  "category":"education",
+  "content":"My instructor is too demanding."
+}
+{
+  "_id":{"$oid":"b00000000000000000000002"},
+  "category":"education",
+  "content":"I feel like my ideas are heard."
+}
+{
+  "_id":{"$oid":"b00000000000000000000003"},
+  "category":"education",
+  "content":"I feel like I'm keeping up with the rest of the class."
+}
+{
+  "_id":{"$oid":"b00000000000000000000004"},
+  "category":"education",
+  "content":"I'm scared to ask a question."
+}
+{
+  "_id":{"$oid":"b00000000000000000000005"},
+  "category":"education",
+  "content":"I will retain the information I'm learning."
+}
+{
+  "_id":{"$oid":"b00000000000000000000006"},
+  "category":"politics",
+  "content":"I am happy with the role of government."
+}
+{
+  "_id":{"$oid":"b00000000000000000000007"},
+  "category":"politics",
+  "content":"I think the President is doing a good job."
+}
+{
+  "_id":{"$oid":"b00000000000000000000008"},
+  "category":"politics",
+  "content":"I feel like the country is moving in the right direction."
+}
+{
+  "_id":{"$oid":"b00000000000000000000009"},
+  "category":"politics",
+  "content":"My vote matters."
+}
+{
+  "_id":{"$oid":"b00000000000000000000010"},
+  "category":"politics",
+  "content":"I am proud of my country."
+}
+{
+  "_id":{"$oid":"b00000000000000000000011"},
+  "category":"relationships",
+  "content":"My partner understands me."
+}
+{
+  "_id":{"$oid":"b00000000000000000000012"},
+  "category":"relationships",
+  "content":"I feel like I can be myself around my partner."
+}
+{
+  "_id":{"$oid":"b00000000000000000000013"},
+  "category":"relationships",
+  "content":"I feel loved."
+}
+{
+  "_id":{"$oid":"b00000000000000000000014"},
+  "category":"relationships",
+  "content":"I am interested in my partner's needs."
+}
+{
+  "_id":{"$oid":"b00000000000000000000015"},
+  "category":"relationships",
+  "content":"Men and women can be just friends."
+}
+{
+  "_id":{"$oid":"b00000000000000000000016"},
+  "category":"products",
+  "content":"I would use this product on a daily basis."
+}
+{
+  "_id":{"$oid":"b00000000000000000000017"},
+  "category":"products",
+  "content":"I would purchase this product."
+}
+{
+  "_id":{"$oid":"b00000000000000000000018"},
+  "category":"products",
+  "content":"I would recommend this product to others."
+}
+{
+  "_id":{"$oid":"b00000000000000000000019"},
+  "category":"products",
+  "content":"I already have a similar product."
+}
+{
+  "_id":{"$oid":"b00000000000000000000020"},
+  "category":"products",
+  "content":"I would change something about this product."
+}
