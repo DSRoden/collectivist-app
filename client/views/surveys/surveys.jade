@@ -1,34 +1,54 @@
-h3(ng-hide='hideSurveys')  Today's Forms
-  ul(ng-show='surveys')
-    li(ng-repeat='survey in surveys') {{survey.title}}
+#surveys(ng-hide='hideSurveys')
+  h3 Today's Forms
+  #forms(ng-show='surveys')
+    .form(ng-repeat='survey in surveys')
+      h3 {{survey.title}}
       button.btn.btn-success(ng-click='loadSurvey(survey._id)') Take Survey
 
 
 #form(ng-hide='!showSurvey')
   h1 {{question.content}}
   h4 Question {{qIndex + 1}} of {{questions.length}}
-  h2#valueRadios Give your opinion:
-  input(type='radio', name='value', value=1, ng-model='response.value')
-  span &nbsp; Strongly Disagree &nbsp;
-  input(type='radio', name='value', value=2, ng-model='response.value')
-  span &nbsp; Disagree &nbsp;
-  input(type='radio', name='value', value=3, ng-model='response.value')
-  span &nbsp; Neutral &nbsp;
-  input(type='radio', name='value', value=4, ng-model='response.value')
-  span &nbsp; Agree &nbsp;
-  input(type='radio', name='value', value=5, ng-model='response.value')
-  span &nbsp; Strongly Agree &nbsp;
-  h2#predictionRadios Predict the average response:
-  input(type='radio', name='prediction', value=1, ng-model='response.prediction')
-  span &nbsp; Strongly Disagree &nbsp;
-  input(type='radio', name='prediction', value=2, ng-model='response.prediction')
-  span &nbsp; Disagree &nbsp;
-  input(type='radio', name='prediction', value=3, ng-model='response.prediction')
-  span &nbsp; Neutral &nbsp;
-  input(type='radio', name='prediction', value=4, ng-model='response.prediction')
-  span &nbsp; Agree &nbsp;
-  input(type='radio', name='prediction', value=5, ng-model='response.prediction')
-  span &nbsp; Strongly Agree &nbsp;
+  .row
+    .col-xs-9
+      h4.head Give your opinion:
+      table.table.table-bordered.scores
+        tbody
+          tr
+            td
+              input(type='radio', name='value', value=1, ng-model='response.value')
+              span &nbsp; Strongly Disagree &nbsp;
+            td
+              input(type='radio', name='value', value=2, ng-model='response.value')
+              span &nbsp; Disagree &nbsp;
+            td
+              input(type='radio', name='value', value=3, ng-model='response.value')
+              span &nbsp; Neutral &nbsp;
+            td
+              input(type='radio', name='value', value=4, ng-model='response.value')
+              span &nbsp; Agree &nbsp;
+            td
+              input(type='radio', name='value', value=5, ng-model='response.value')
+              span &nbsp; Strongly Agree &nbsp;
+      h4.head Predict the average response:
+      table.table.table-bordered.scores
+        tbody
+          tr
+            td
+              input(type='radio', name='prediction', value=1, ng-model='response.prediction')
+              span &nbsp; Strongly Disagree &nbsp;
+            td
+              input(type='radio', name='prediction', value=2, ng-model='response.prediction')
+              span &nbsp; Disagree &nbsp;
+            td
+              input(type='radio', name='prediction', value=3, ng-model='response.prediction')
+              span &nbsp; Neutral &nbsp;
+            td
+              input(type='radio', name='prediction', value=4, ng-model='response.prediction')
+              span &nbsp; Agree &nbsp;
+            td
+              input(type='radio', name='prediction', value=5, ng-model='response.prediction')
+              span &nbsp; Strongly Agree &nbsp;
   button.btn.btn-success(ng-click='addResponse()') Submit Answer
 
 #done(ng-show='surveyCompleted')
