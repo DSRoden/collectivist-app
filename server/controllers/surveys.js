@@ -3,7 +3,8 @@
 var Survey = require('../models/survey');
 
 exports.index = function(req, res){
-  Survey.all(function(err, surveys){
+  Survey.all(req.user, function(err, surveys){
+    console.log('req.user>>>>>', req.user);
     res.send({surveys:surveys});
   });
 };
