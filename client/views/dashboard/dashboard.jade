@@ -22,8 +22,8 @@ button.btn-primary(ng-click='mySurveys()') Surveys I've Taken
           td: a.btn.btn-success(href='/#/surveys/{{survey._id}}') Take Survey
 
 .panel(ng-show='showMine')
-  .pane-heading
-    h3(ng-hide='hideSurveys')  Surveys
+  .panel-heading
+    h3(ng-hide='hideSurveys')  Surveys Taken
   .panel-body
     table.table.table-hover
       tbody
