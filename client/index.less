@@ -31,47 +31,75 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   color: inherit;
 }
 
+.pic{
+  content: url(http://dannyvermette.com/wp-content/uploads/2014/01/building-a-team.jpg);
+  height: 200px;
+  width: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -20px;
+}
+
 .jumbotron{
-  height: 800px;
+  padding-top: 40px;
   background-color: white;
   padding-top: 30px;
   padding-bottom: 30px;
+  background-size: cover;
 }
 
 .container .jumbotron {
-  padding-right: 60px;
-  padding-left: 60px;
-  margin-top: 100px;
+  padding-right: 50px;
+  padding-left: 50px;
+  margin-top: 50px;
 }
 
 .info{
-  font-size: 20px;
+  font-size: 17px;
+  text-align: center;
 }
+
+h3.info{
+  text-align: center;
+}
+
+th{
+  width: 45%;
+}
+
 .btn-primary {
   color: #fff;
   background-color: #428bca;
   border-color: #357ebd;
   margin-top: 10px;
+  margin-left: 10px;
 }
 .jumbotron p {
   margin-bottom: 15px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 200;
+}
+
+p.al, h4{
+  text-align: center;
 }
 
 .navbar-brand, .navbar > .container-fluid .navbar-brand {
   margin-left: -15px;
-  font-size: 40px;
+  font-size: 25px;
   font-family: 'Montserrat Alternates', sans-serif;
 }
 
 .navbar-default {
   background-color: rgba(238, 238, 238, 0.89);
   border-color: #e7e7e7;
+  height: 5px;
 }
 
 .tagline{
   font-family: 'Montserrat Alternates', sans-serif;
+  text-align: center;
 }
 input.ng-invalid, select.ng-invalid{
   background-color: @GRAY;
