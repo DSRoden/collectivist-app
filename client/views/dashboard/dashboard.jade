@@ -3,19 +3,29 @@ br
 br
 button.btn-primary(ng-click='allSurveys()') All Surveys
 button.btn-primary(ng-click='mySurveys()') Surveys I've Taken
+.no-taken(ng-if='noneTaken') You haven't taken any surveys yet!
 
-#allSurveys(ng-show='showAll')
-  h3(ng-hide='hideSurveys')  Surveys
-    table.table.table-hover(ng-show='surveys')
+
+.panel(ng-show='showAll')
+  .panel-heading
+    h3(ng-hide='hideSurveys')  Surveys
+  .panel-body
+    table.table.table-hover
+      thead
+        tr
+          th Name
+          th #Respondents
       tbody
         tr(ng-repeat='survey in surveys')
           td {{survey.title}}
           td {{survey.count}}
           td: a.btn.btn-success(href='/#/surveys/{{survey._id}}') Take Survey
 
-#mySurveys(ng-show='showMine')
-  h3(ng-hide='hideSurveys')  Surveys
-    table.table.table-hoer(ng-show'surveys')
+.panel(ng-show='showMine')
+  .pane-heading
+    h3(ng-hide='hideSurveys')  Surveys
+  .panel-body
+    table.table.table-hover
       tbody
         tr(ng-repeat='survey in takenSurveys') {{survey.title}}
           td {{survey.title}}

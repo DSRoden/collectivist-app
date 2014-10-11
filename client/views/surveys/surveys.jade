@@ -8,30 +8,34 @@ br
         h2.panel-title.survey-title {{survey.title.charAt(0).toUpperCase() + survey.title.slice(1)}}
           span.questNum &nbsp &nbsp &nbsp {{qIndex + 1}} of {{questions.length}}
       .panel-body
-        h3 {{question.content}}
-        #values
-          h4 What do you think?
-          .opinion
-            h5.value(ng-class='{sd: response.value <= 20}') {{opinions[0]}}
-            h5.value(ng-class='{dis: response.value > 20 && response.value <=40}') {{opinions[1]}}
-            h5.value(ng-class='{neut: response.value >40 && response.value <=60}') {{opinions[2]}}
-            h5.value(ng-class='{agr: response.value >60 && response.value <=80}') {{opinions[3]}}
-            h5.value(ng-class='{sa: response.value >80 && response.value <=100}') {{opinions[4]}}
-          div.slider1
-            input#mySlider1.value-input(ng-model='response.value',  type='text', slider options='options')
-          br
-        h4#predictions What do you think will be the average response?
-          br
-          .opinion
-            h5.value(ng-class='{sdp: response.prediction <= 20}') {{opinions[0]}}
-            h5.value(ng-class='{disp: response.prediction > 20 && response.prediction <=40}') {{opinions[1]}}
-            h5.value(ng-class='{neutp: response.prediction >40 && response.prediction <=60}') {{opinions[2]}}
-            h5.value(ng-class='{agrp: response.prediction >60 && response.prediction <=80}') {{opinions[3]}}
-            h5.value(ng-class='{sap: response.prediction >80 && response.prediction <=100}') {{opinions[4]}}
-          div.slider2
-            input#mySlider2(ng-model='response.prediction',  type='text', slider options='options')
-          br
-        button.btn.btn-success(ng-click='addResponse()') Submit Response
+        .row
+          .col-xs-8
+            h3 {{question.content}}
+            #values
+              h4 What do you think?
+              .opinion
+                h5.value(ng-class='{sd: response.value <= 20}') {{opinions[0]}}
+                h5.value(ng-class='{dis: response.value > 20 && response.value <=40}') {{opinions[1]}}
+                h5.value(ng-class='{neut: response.value >40 && response.value <=60}') {{opinions[2]}}
+                h5.value(ng-class='{agr: response.value >60 && response.value <=80}') {{opinions[3]}}
+                h5.value(ng-class='{sa: response.value >80 && response.value <=100}') {{opinions[4]}}
+              div.slider1
+                input#mySlider1.value-input(ng-model='response.value',  type='text', slider options='options')
+              br
+            h4#predictions What do you think will be the average response?
+              br
+              .opinion
+                h5.value(ng-class='{sdp: response.prediction <= 20}') {{opinions[0]}}
+                h5.value(ng-class='{disp: response.prediction > 20 && response.prediction <=40}') {{opinions[1]}}
+                h5.value(ng-class='{neutp: response.prediction >40 && response.prediction <=60}') {{opinions[2]}}
+                h5.value(ng-class='{agrp: response.prediction >60 && response.prediction <=80}') {{opinions[3]}}
+                h5.value(ng-class='{sap: response.prediction >80 && response.prediction <=100}') {{opinions[4]}}
+              div.slider2
+                input#mySlider2(ng-model='response.prediction',  type='text', slider options='options')
+              br
+            button.btn.btn-success(ng-click='addResponse()') Submit Response
+          .col-xs-4
+            img(ng-src="{{survey.photo}}")
 
 .row(ng-show='surveyCompleted')
   .col-xs-12

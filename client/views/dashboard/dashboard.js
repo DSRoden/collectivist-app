@@ -29,11 +29,17 @@
     };
 
     $scope.mySurveys = function(){
-      Dashboard.getTaken().then(function(response){
-        $scope.takenSurveys = response.data.surveys;
-        $scope.showMine = true;
-        $scope.showAll = false;
-      });
+      if(!$scope.user.taken){
+      $scope.noneTaken = true;
+      } else{
+        Dashboard.getTaken().then(function(response){
+          $scope.takenSurveys = response.data.surveys;
+          $scope.showMine = true;
+          $scope.showAll = false;
+          console.log($scope.showMine);
+          console.log($scope.showAll);
+        });
+        }
     };
   }]);
 })();
