@@ -1,24 +1,28 @@
 {
   "_id":{"$oid":"f00000000000000000000001"},
   "title":"nss",
+  "count":"0",
   "photo":"http://www.chicagocbm.com/clinic//wp-content/uploads/2010/07/workplace1.bmp",
   "questions":[{"$oid":"b00000000000000000000001"},{"$oid":"b00000000000000000000002"}, {"$oid":"b00000000000000000000003"}, {"$oid":"b00000000000000000000004"},{"$oid":"b00000000000000000000005"}]
 }
 {
   "_id":{"$oid":"f00000000000000000000002"},
   "title":"politics",
+  "count":"0",
   "photo":"http://www.ceasmc.org/wp-content/uploads/sites/10/2014/03/politics.jpg",
   "questions":[{"$oid":"b00000000000000000000006"},{"$oid":"b00000000000000000000007"}, {"$oid":"b00000000000000000000008"}, {"$oid":"b00000000000000000000009"},{"$oid":"b00000000000000000000010"}]
 }
 {
   "_id":{"$oid":"f00000000000000000000003"},
   "title":"relationships",
+  "count":"0",
   "photo":"http://www.israeljoseph.com/blog/wp-content/uploads/2014/06/relationship.jpg",
   "questions":[{"$oid":"b00000000000000000000011"},{"$oid":"b00000000000000000000012"}, {"$oid":"b00000000000000000000013"}, {"$oid":"b00000000000000000000014"},{"$oid":"b00000000000000000000015"}]
 }
 {
   "_id":{"$oid":"f00000000000000000000004"},
   "title":"shake weight",
+  "count":"0",
   "photo":"http://www.cool-health.com/wp-content/uploads/does-the-shake-weight-work.jpg",
   "questions":[{"$oid":"b00000000000000000000016"},{"$oid":"b00000000000000000000017"}, {"$oid":"b00000000000000000000018"}, {"$oid":"b00000000000000000000019"},{"$oid":"b00000000000000000000020"}]
 }

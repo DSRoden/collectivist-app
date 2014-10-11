@@ -32,10 +32,15 @@ Answer.addResponse = function(o, cb){
     console.log('THIS ANSWER========', thisAnswer);
     answer.responses.push(thisAnswer);
     console.log('answer>>>>>>>>>>>>>>', answer);
+    var responsesLength = answer.responses.length,
+        surveyId = Mongo.ObjectID(answer.surveryId);
     Answer.collection.update({surveyId:answer.surveyId}, {$set:{responses:answer.responses}}, function(){
-      cb(err, answer);
-    });
-  });
+       console.log('responsesLength>>>>>>>>>>>>>', responsesLength);
+      require('./survey').collection.update({_id: surveyId}, {$set: {count: responsesLength}}, function(){
+        cb(err, answer);
+      });
+   });
+ });
 };
 
 Answer.prototype.syncScore = function(){

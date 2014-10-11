@@ -33,6 +33,7 @@ module.exports = function(app, express){
   app.get('/user', users.user);
   app.get('/surveys', surveys.index);
   app.post('/survey', surveys.fetchSurvey);
+  app.get('/taken', surveys.fetchTaken);
   app.post('/results', results.addResponse);
 
   app.post('/getresults', results.getResults);

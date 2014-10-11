@@ -1,38 +1,48 @@
-h1 {{title}}
+br
+br
+br
+.row(ng-hide='showQuestions')
+  .col-xs-12
+    .panel
+      .panel-heading
+        h2.panel-title.survey-title {{survey.title.charAt(0).toUpperCase() + survey.title.slice(1)}}
+          span.questNum &nbsp &nbsp &nbsp {{qIndex + 1}} of {{questions.length}}
+      .panel-body
+        h3 {{question.content}}
+        #values
+          h4 What do you think?
+          .opinion
+            h5.value(ng-class='{sd: response.value <= 20}') {{opinions[0]}}
+            h5.value(ng-class='{dis: response.value > 20 && response.value <=40}') {{opinions[1]}}
+            h5.value(ng-class='{neut: response.value >40 && response.value <=60}') {{opinions[2]}}
+            h5.value(ng-class='{agr: response.value >60 && response.value <=80}') {{opinions[3]}}
+            h5.value(ng-class='{sa: response.value >80 && response.value <=100}') {{opinions[4]}}
+          div.slider1
+            input#mySlider1.value-input(ng-model='response.value',  type='text', slider options='options')
+          br
+        h4#predictions What do you think will be the average response?
+          br
+          .opinion
+            h5.value(ng-class='{sdp: response.prediction <= 20}') {{opinions[0]}}
+            h5.value(ng-class='{disp: response.prediction > 20 && response.prediction <=40}') {{opinions[1]}}
+            h5.value(ng-class='{neutp: response.prediction >40 && response.prediction <=60}') {{opinions[2]}}
+            h5.value(ng-class='{agrp: response.prediction >60 && response.prediction <=80}') {{opinions[3]}}
+            h5.value(ng-class='{sap: response.prediction >80 && response.prediction <=100}') {{opinions[4]}}
+          div.slider2
+            input#mySlider2(ng-model='response.prediction',  type='text', slider options='options')
+          br
+        button.btn.btn-success(ng-click='addResponse()') Submit Response
+
+.row(ng-show='surveyCompleted')
+  .col-xs-12
+    .panel
+      .panel-heading
+        h2.panel-title.survey-title#completedSurvey You completed the survey!
+        br
+        button.btn.btn-success.submit(ng-click='submitResponses()') See Your Results
+        br
+        br
 
 
-#form(ng-hide='!showSurvey')
-  h1 {{question.content}}
-  h4 Question {{qIndex + 1}} of {{questions.length}}
-  h2#valueRadios Give your opinion:
-  input(type='radio', name='value', value=1, ng-model='response.value')
-  span &nbsp; Strongly Disagree &nbsp;
-  input(type='radio', name='value', value=2, ng-model='response.value')
-  span &nbsp; Disagree &nbsp;
-  input(type='radio', name='value', value=3, ng-model='response.value')
-  span &nbsp; Neutral &nbsp;
-  input(type='radio', name='value', value=4, ng-model='response.value')
-  span &nbsp; Agree &nbsp;
-  input(type='radio', name='value', value=5, ng-model='response.value')
-  span &nbsp; Strongly Agree &nbsp;
-  h2#predictionRadios Predict the average response:
-  input(type='radio', name='prediction', value=1, ng-model='response.prediction')
-  span &nbsp; Strongly Disagree &nbsp;
-  input(type='radio', name='prediction', value=2, ng-model='response.prediction')
-  span &nbsp; Disagree &nbsp;
-  input(type='radio', name='prediction', value=3, ng-model='response.prediction')
-  span &nbsp; Neutral &nbsp;
-  input(type='radio', name='prediction', value=4, ng-model='response.prediction')
-  span &nbsp; Agree &nbsp;
-  input(type='radio', name='prediction', value=5, ng-model='response.prediction')
-  span &nbsp; Strongly Agree &nbsp;
-  button.btn.btn-success(ng-click='addResponse()') Submit Answer
-
-//make this a link to results
-#done(ng-show='surveyCompleted')
-  h1 You've completed the survey!
-  button.btn.btn-success(ng-click='submitResponses()') Submit Results
-#viewResults(ng-show='seeResults')
-  a.btn.btn-success(href='/#/results/{{survey._id}}') See Results!
 
 

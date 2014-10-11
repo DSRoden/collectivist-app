@@ -1,7 +1,24 @@
-h3 {{title}}
-h3(ng-hide='hideSurveys')  Today's Forms
-  ul(ng-show='surveys')
-    li(ng-repeat='survey in surveys') {{survey.title}}
-      a.btn.btn-success(href='/#/surveys/{{survey._id}}') Take Survey
+br
+br
+br
+button.btn-primary(ng-click='allSurveys()') All Surveys
+button.btn-primary(ng-click='mySurveys()') Surveys I've Taken
+
+#allSurveys(ng-show='showAll')
+  h3(ng-hide='hideSurveys')  Surveys
+    table.table.table-hover(ng-show='surveys')
+      tbody
+        tr(ng-repeat='survey in surveys')
+          td {{survey.title}}
+          td {{survey.count}}
+          td: a.btn.btn-success(href='/#/surveys/{{survey._id}}') Take Survey
+
+#mySurveys(ng-show='showMine')
+  h3(ng-hide='hideSurveys')  Surveys
+    ul(ng-show='surveys')
+      li(ng-repeat='survey in takenSurveys') {{survey.title}}
+        #viewResults(ng-show='seeResults')
+        a.btn.btn-success(href='/#/results/{{survey._id}}') See Results!
+
 
 

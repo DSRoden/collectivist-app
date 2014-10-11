@@ -1,46 +1,102 @@
-.form{
+@blue: #057D9E;
+@green: #059E4C;
+
+.panel-heading {
+  background-color: black;
+  color: white;
+}
+
+#values {
+  margin: 0 auto;
+}
+
+h2.panel-title.survey-title {
+  font-size: 30px;
+}
+span.questNum {
+  font-size: 15px;
+}
+.opinion h5 {
   display: inline-block;
-  vertical-align: top;
-  width: 250px;
-  border: 1px solid #111111;
-  border-radius: 5px;
-  margin: 20px;
-  background-color: #DDDDDD;
-
-  button{
-    position: relative;
-    bottom: 2px;
-    text-align: center;
-  }
-
+  margin: 0px;
 }
 
-.scores{
-  td{
-    width: 163px;
-    border: #dddddd;
-    background-color: #f9f9f9;
-  }
-  td:hover{
-    background-color: rgba(112, 111, 111, 0.42);
-  }
+.slider1 {
+  width: 700px;
+  margin: 0px;
+  padding: 10px;
+  background-color: @blue;
+  opacity: 1;
 }
 
-.head{
-  font-weight: bold;
+.slider2 {
+  width: 700px;
+  margin: 0px;
+  padding: 10px;
+  background-color: @green;
+  opacity: 1;
 }
 
-.radio {
-  display: inline-block;
-  margin-left: 10px;
+h5.value {
+  width: 140px;
+  background-color: white;
+  opacity: 0.5;
+  text-align: center;
+  border: 1px solid #CCC;
 }
 
-.buddha{
-  background-color: #FCF91E;
+.sd {
+  color: @blue;
+  opacity: 1;
 }
 
-.bozo{
-  background-color: #FC1ED0;
+.dis {
+  color: @blue;
+  opacity: 1;
+}
+.neut {
+  color: @blue ;
+  opacity: 1;
+}
+.agr {
+  color: @blue;
+  opacity: 1;
+}
+.sa {
+  color: @blue;
+  opacity: 1;
+}
+
+.sdp {
+  color: @green;
+  opacity: 1;
+}
+
+.disp {
+  color: @green;
+  opacity: 1;
+}
+.neutp {
+  color: @green;
+  opacity: 1;
+}
+.agrp {
+  color: @green;
+  opacity: 1;
+}
+.sap {
+  color: @green;
+  opacity: 1;
+}
+
+h2#completedSurvey {
+  text-align: center;
+  padding: 30px;
+}
+
+.submit {
+  display: block;
+  margin: 0 auto;
 }
 
 .last{
