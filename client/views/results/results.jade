@@ -1,15 +1,28 @@
-h1 {{title}}
-h2 this is results
+h1 Results for the {{survey.title}} survey
 
-#syncScoreTable
-  h1 Sync Scores!
-  table.table
-    thead
-      tr
-        th
-        th(ng-repeat='a in avg track by $index') Q{{$index+1}} {{a}}
-    tbody
-      tr(ng-repeat='r in results', ng-class='{last: r.userId == user._id}')
-        td U{{$index+1}}
-        td(ng-repeat='q in r.scores track by $index', ng-class='{buddha: q > -1 && q < 1, bozo: q > 1 && q < 4}') {{q}}
+.container-fluid
+  .row
+    .col-xs-6
+      #syncScoreTable
+        h1 Sync Scores
+        table.table
+          thead
+            tr
+              th
+              th(ng-repeat='a in avg track by $index') Q{{$index+1}} {{a}}
+          tbody
+            tr(ng-repeat='r in results', ng-class='{last: r.userId == user._id}')
+              td U{{$index+1}}
+              td.poor(ng-repeat='q in r.scores track by $index', ng-class='{great: q > -20 && q < 20, good: q > -40  && q < 40, okay: q > -60 && q < 60}') {{q}}
+              //-td(ng-repeat='q in r.scores track by $index', ng-class='{great: q > -20  && q < -20, good: Math.abs(q) > 20 && Math.abs(q) < 40}') {{q}}
+      br
+      h3 What am I looking at?
+      p The sync score is a measure of how 'in tune' respondents are with each other. The sync score is the difference between the average of all responses for a question, and a users prediction of that value.
+      | A lower sync score is better. A row of poor sync scores indicates a question for which people are not in tune. A column of poor sync scores means there is a certain user who is not in tune.
+      | The numbers at the top of each column represent the average response for that question.
+    .col-xs-6
+      h1 {{survey.title}}
+      h2 Questions
+      h3(ng-repeat='q in questions track by $index') Q{{$index + 1}} {{q.content}}
+
 
