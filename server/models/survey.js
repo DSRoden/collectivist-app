@@ -1,7 +1,8 @@
 'use strict';
 
-var Mongo = require('mongodb');
-    //_     = require('underscore-contrib');
+var Mongo = require('mongodb'),
+    async = require('async'),
+    _     = require('underscore-contrib');
 
 
 function Survey(){
@@ -52,3 +53,19 @@ Survey.getSurveyWithQuestions = function(id, cb){
 
 
 module.exports = Survey;
+
+// private functions
+
+function iterator(survey, cb){
+  console.log('inside iterator1, survey >>>>>>>', survey);
+  var surveyId = survey._id.toString();
+  console.log('inside iterator1, surveyId >>>>>>>', surveyId);
+  return surveyId;
+}
+
+function iterator2(notTakenId, cb){
+  var _id = Mongo.ObjectID(notTakenId);
+  Survey.collection.findOne({_id:_id}, function(err, survey){
+  cb(null, survey);
+  });
+}

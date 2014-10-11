@@ -4,7 +4,8 @@ var Survey = require('../models/survey');
 
 exports.index = function(req, res){
   Survey.all(req.user, function(err, surveys){
-    console.log('req.user>>>>>', req.user);
+    //console.log('req.user>>>>>', req.user);
+    //console.log(surveys);
     res.send({surveys:surveys});
   });
 };
@@ -14,6 +15,13 @@ exports.fetchSurvey = function(req, res){
     console.log(survey);
     console.log(questions);
     res.send({survey:survey, questions:questions});
+  });
+};
+
+exports.fetchTaken = function(req, res){
+  Survey.allTaken(req.user, function(err, surveys){
+    console.log(surveys);
+    res.send({surveys:surveys});
   });
 };
 

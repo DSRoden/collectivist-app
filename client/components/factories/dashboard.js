@@ -8,8 +8,10 @@
       return $http.get('/surveys');
     }
 
+    function getTaken(){
+      return $http.get('/taken');
+    }
 
-
-    return {getSurveys:getSurveys};
+    return {getSurveys:getSurveys, getTaken:getTaken};
   }]);
 })();

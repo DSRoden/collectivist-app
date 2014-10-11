@@ -4,17 +4,37 @@
   angular.module('collectivist-app')
   .controller('DashboardCtrl', ['$scope', 'User', 'Dashboard', function($scope, User, Dashboard){
     $scope.surveys = [];
+    $scope.takenSurveys = [];
+    $scope.user = {};
     $scope.title = 'DASHBOARD';
+    $scope.showAll = true;
+
+    Dashboard.getSurveys().then(function(response){
+      $scope.surveys = response.data.surveys;
+      $scope.showMine = false;
+      $scope.showAll = true;
+    });
 
     User.user().then(function(response){
+      console.log(response.data);
       $scope.user = response.data;
     });
 
-    Dashboard.getSurveys().then(function(response){
-      $scope.showSurvey = false;
-      $scope.surveys = response.data.surveys;
-    });
+    $scope.allSurveys = function(){
+      Dashboard.getSurveys().then(function(response){
+        $scope.surveys = response.data.surveys;
+        $scope.showMine = false;
+        $scope.showAll = true;
+      });
+    };
 
+    $scope.mySurveys = function(){
+      Dashboard.getTaken().then(function(response){
+        $scope.takenSurveys = response.data.surveys;
+        $scope.showMine = true;
+        $scope.showAll = false;
+      });
+    };
   }]);
 })();
 

@@ -10,8 +10,37 @@
     $scope.response = {};
     $scope.title = 'SURVEYS';
     $scope.qIndex = 0;
-
+    $scope.slider = {};
+    $scope.response.value = '50';
+    $scope.response.prediction = '50';
+    $scope.opinions = ['Strongly Disagree', 'Disagree', 'Neutral', 'Agree', 'Strongly Agree'];
+    $scope.showQuestions = false;
     var id = $routeParams.surveyId;
+
+     function ctrlValue($scope){
+      $scope.response.value = $scope.response.value;
+      $scope.options = {
+        from: 0,
+        to: 100,
+        step: 1,
+        dimension: ''
+        //scale: [0, 'Strongly Disagree', 50, '|' , 100]
+      };
+    }
+    ctrlValue($scope);
+
+     function ctrlPrediction($scope){
+      $scope.response.prediction = $scope.response.prediction;
+      $scope.options = {
+        from: 0,
+        to: 100,
+        step: 1,
+        dimension: ''
+        //scale: ['Strongly Disagree', 'Disagree', 'Neutral', 'Agree', 'Strongly Agree']
+      };
+    }
+    ctrlPrediction($scope);
+
 
     User.user().then(function(response){
       $scope.user = response.data;
@@ -29,6 +58,7 @@
       $scope.responses.push($scope.response);
       $scope.qIndex += 1;
       if($scope.qIndex === $scope.questions.length){
+        $scope.showQuestions = !!!$scope.showQuestions;
         $scope.showSurvey = false;
         $scope.surveyCompleted = true;
         //call submit form function
