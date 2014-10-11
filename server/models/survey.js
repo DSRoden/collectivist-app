@@ -1,8 +1,8 @@
 'use strict';
 
-var Mongo = require('mongodb'),
-    async = require('async'),
-    _     = require('underscore-contrib');
+var Mongo = require('mongodb');
+    //async = require('async'),
+    //_     = require('underscore-contrib');
 
 
 function Survey(){
@@ -14,6 +14,20 @@ Object.defineProperty(Survey, 'collection', {
 
 Survey.create = function(o, cb){
   Survey.collection.save(o, cb);
+};
+
+Survey.allTaken = function(user, cb){
+  var results = [];
+  Survey.collection.find().toArray(function(err, surveys){
+    user.taken.forEach(function(survey){
+      for(var i = 0; i<surveys.length; i++){
+        if(surveys[i]._id.toString() === survey){
+          results.push(surveys[i]);
+        }
+      }
+    });
+    cb(null, results);
+  });
 };
 
 Survey.all = function(user, cb){
@@ -55,7 +69,7 @@ Survey.getSurveyWithQuestions = function(id, cb){
 module.exports = Survey;
 
 // private functions
-
+/*
 function iterator(survey, cb){
   console.log('inside iterator1, survey >>>>>>>', survey);
   var surveyId = survey._id.toString();
@@ -69,3 +83,4 @@ function iterator2(notTakenId, cb){
   cb(null, survey);
   });
 }
+*/
