@@ -33,10 +33,12 @@ Answer.addResponse = function(o, cb){
     answer.responses.push(thisAnswer);
     console.log('answer>>>>>>>>>>>>>>', answer);
     var responsesLength = answer.responses.length,
-        surveyId = Mongo.ObjectID(answer.surveryId);
+        surveyId = Mongo.ObjectID(answer.surveyId);
+    console.log(responsesLength);
     Answer.collection.update({surveyId:answer.surveyId}, {$set:{responses:answer.responses}}, function(){
        console.log('responsesLength>>>>>>>>>>>>>', responsesLength);
-      require('./survey').collection.update({_id: surveyId}, {$set: {count: responsesLength}}, function(){
+      require('./survey').collection.update({_id: surveyId}, {$set: {count: responsesLength}}, function(err, updated){
+        console.log('changing the count on a survey>>>>>>>>>>', updated);
         cb(err, answer);
       });
    });

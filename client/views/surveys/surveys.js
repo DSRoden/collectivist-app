@@ -50,11 +50,13 @@
       $scope.survey = response.data.survey;
       $scope.questions = response.data.questions;
       $scope.question = $scope.questions[$scope.qIndex];
-      $scope.response = {qId:$scope.question._id};
+      $scope.response = {qId:$scope.question._id, value: 50, prediction: 50};
       $scope.showSurvey = true;
     });
 
     $scope.addResponse = function(){
+      var value = $scope.response.value,
+          prediction = $scope.response.prediction;
       $scope.responses.push($scope.response);
       $scope.qIndex += 1;
       if($scope.qIndex === $scope.questions.length){
@@ -64,7 +66,7 @@
         //call submit form function
       }else{
         $scope.question = $scope.questions[$scope.qIndex];
-        $scope.response = {qId:$scope.question._id};
+        $scope.response = {qId:$scope.question._id, value:value, prediction: prediction};
       }
 
     };
