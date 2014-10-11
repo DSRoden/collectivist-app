@@ -4,63 +4,264 @@
       "userId":{"$oid":"000000000000000000000001"},
       "answers":[
       {"qId" : {"$oid":"b00000000000000000000001"},
-      "value": 2,
-      "prediction": 3},
+      "value": 25,
+      "prediction": 78},
       {"qId" : {"$oid":"b00000000000000000000002"},
-      "value": 4,
-      "prediction": 1},
+      "value": 74,
+      "prediction": 31},
       {"qId" : {"$oid":"b00000000000000000000003"},
-      "value": 3,
-      "prediction": 2},
+      "value": 93,
+      "prediction": 52},
       {"qId" : {"$oid":"b00000000000000000000004"},
-      "value": 1,
-      "prediction": 4},
+      "value": 51,
+      "prediction": 44},
       {"qId" : {"$oid":"b00000000000000000000005"},
-      "value": 3,
-      "prediction": 3}
+      "value": 73,
+      "prediction": 63}
       ]
     },
     {
       "userId":{"$oid":"000000000000000000000002"},
       "answers":[
       {"qId" : {"$oid":"b00000000000000000000001"},
-      "value": 2,
-      "prediction": 4},
+      "value": 82,
+      "prediction": 74},
       {"qId" : {"$oid":"b00000000000000000000002"},
-      "value": 1,
-      "prediction": 2},
+      "value": 61,
+      "prediction": 62},
       {"qId" : {"$oid":"b00000000000000000000003"},
-      "value": 4,
-      "prediction": 2},
+      "value": 74,
+      "prediction": 62},
       {"qId" : {"$oid":"b00000000000000000000004"},
-      "value": 1,
-      "prediction": 1},
+      "value": 41,
+      "prediction": 61},
       {"qId" : {"$oid":"b00000000000000000000005"},
-      "value": 3,
-      "prediction": 2}
+      "value": 73,
+      "prediction": 92}
       ]
     },
     {
       "userId":{"$oid":"000000000000000000000003"},
       "answers":[
       {"qId" : {"$oid":"b00000000000000000000001"},
-      "value": 1,
-      "prediction": 4},
+      "value": 41,
+      "prediction": 74},
       {"qId" : {"$oid":"b00000000000000000000002"},
-      "value": 3,
-      "prediction": 5},
+      "value": 83,
+      "prediction": 95},
       {"qId" : {"$oid":"b00000000000000000000003"},
-      "value": 1,
-      "prediction": 1},
+      "value": 81,
+      "prediction": 61},
       {"qId" : {"$oid":"b00000000000000000000004"},
-      "value": 4,
-      "prediction": 3},
+      "value": 74,
+      "prediction": 83},
       {"qId" : {"$oid":"b00000000000000000000005"},
-      "value": 1,      
-      "prediction": 2}
+      "value": 51,
+      "prediction": 82}
+      ]
+    }
+  ],
+  "surveyId": {"$oid": "f00000000000000000000001"},
+  "_id": {"$oid": "a00000000000000000000001"}
+}
+
+{
+  "responses": [
+    {
+      "userId":{"$oid":"000000000000000000000001"},
+      "answers":[
+      {"qId" : {"$oid":"b00000000000000000000006"},
+      "value": 62,
+      "prediction": 73},
+      {"qId" : {"$oid":"b00000000000000000000007"},
+      "value": 54,
+      "prediction": 91},
+      {"qId" : {"$oid":"b00000000000000000000008"},
+      "value": 73,
+      "prediction": 52},
+      {"qId" : {"$oid":"b00000000000000000000009"},
+      "value": 81,
+      "prediction": 94},
+      {"qId" : {"$oid":"b00000000000000000000010"},
+      "value": 83,
+      "prediction": 43}
+      ]
+    },
+    {
+      "userId":{"$oid":"000000000000000000000002"},
+      "answers":[
+      {"qId" : {"$oid":"b00000000000000000000006"},
+      "value": 82,
+      "prediction": 74},
+      {"qId" : {"$oid":"b00000000000000000000007"},
+      "value": 51,
+      "prediction": 82},
+      {"qId" : {"$oid":"b00000000000000000000008"},
+      "value": 84,
+      "prediction": 42},
+      {"qId" : {"$oid":"b00000000000000000000009"},
+      "value": 51,
+      "prediction": 41},
+      {"qId" : {"$oid":"b00000000000000000000010"},
+      "value": 53,
+      "prediction": 42}
+      ]
+    },
+    {
+      "userId":{"$oid":"000000000000000000000003"},
+      "answers":[
+      {"qId" : {"$oid":"b00000000000000000000006"},
+      "value": 71,
+      "prediction": 64},
+      {"qId" : {"$oid":"b00000000000000000000007"},
+      "value": 93,
+      "prediction": 75},
+      {"qId" : {"$oid":"b00000000000000000000008"},
+      "value": 81,
+      "prediction": 71},
+      {"qId" : {"$oid":"b00000000000000000000009"},
+      "value": 74,
+      "prediction": 63},
+      {"qId" : {"$oid":"b00000000000000000000010"},
+      "value": 91,
+      "prediction": 42}
+      ]
+    }
+  ],
+  "surveyId": {"$oid": "f00000000000000000000002"},
+  "_id": {"$oid": "a00000000000000000000002"}
+}
+
+{
+  "responses": [
+    {
+      "userId":{"$oid":"000000000000000000000001"},
+      "answers":[
+      {"qId" : {"$oid":"b00000000000000000000011"},
+      "value": 62,
+      "prediction": 73},
+      {"qId" : {"$oid":"b00000000000000000000012"},
+      "value": 84,
+      "prediction": 91},
+      {"qId" : {"$oid":"b00000000000000000000013"},
+      "value": 63,
+      "prediction": 82},
+      {"qId" : {"$oid":"b00000000000000000000014"},
+      "value": 81,
+      "prediction": 74},
+      {"qId" : {"$oid":"b00000000000000000000015"},
+      "value": 33,
+      "prediction": 38}
+      ]
+    },
+    {
+      "userId":{"$oid":"000000000000000000000002"},
+      "answers":[
+      {"qId" : {"$oid":"b00000000000000000000011"},
+      "value": 29,
+      "prediction": 74},
+      {"qId" : {"$oid":"b00000000000000000000012"},
+      "value": 10,
+      "prediction": 62},
+      {"qId" : {"$oid":"b00000000000000000000013"},
+      "value": 46,
+      "prediction": 72},
+      {"qId" : {"$oid":"b00000000000000000000014"},
+      "value": 81,
+      "prediction": 71},
+      {"qId" : {"$oid":"b00000000000000000000015"},
+      "value": 93,
+      "prediction": 62}
+      ]
+    },
+    {
+      "userId":{"$oid":"000000000000000000000003"},
+      "answers":[
+      {"qId" : {"$oid":"b00000000000000000000011"},
+      "value": 51,
+      "prediction": 84},
+      {"qId" : {"$oid":"b00000000000000000000012"},
+      "value": 73,
+      "prediction": 95},
+      {"qId" : {"$oid":"b00000000000000000000013"},
+      "value": 81,
+      "prediction": 61},
+      {"qId" : {"$oid":"b00000000000000000000014"},
+      "value": 84,
+      "prediction": 73},
+      {"qId" : {"$oid":"b00000000000000000000015"},
+      "value": 61,
+      "prediction": 82}
       ]
     }
   ],
   "surveyId": {"$oid": "f00000000000000000000003"},
-  "_id": {"$oid": "a00000000000000000000001"}
+  "_id": {"$oid": "a00000000000000000000003"}
+}
+
+{
+  "responses": [
+    {
+      "userId":{"$oid":"000000000000000000000001"},
+      "answers":[
+      {"qId" : {"$oid":"b00000000000000000000016"},
+      "value": 52,
+      "prediction": 43},
+      {"qId" : {"$oid":"b00000000000000000000017"},
+      "value": 84,
+      "prediction": 71},
+      {"qId" : {"$oid":"b00000000000000000000018"},
+      "value": 93,
+      "prediction": 82},
+      {"qId" : {"$oid":"b00000000000000000000019"},
+      "value": 91,
+      "prediction": 84},
+      {"qId" : {"$oid":"b00000000000000000000020"},
+      "value": 73,
+      "prediction": 63}
+      ]
+    },
+    {
+      "userId":{"$oid":"000000000000000000000002"},
+      "answers":[
+      {"qId" : {"$oid":"b00000000000000000000016"},
+      "value": 62,
+      "prediction": 44},
+      {"qId" : {"$oid":"b00000000000000000000017"},
+      "value": 81,
+      "prediction": 72},
+      {"qId" : {"$oid":"b00000000000000000000018"},
+      "value": 45,
+      "prediction": 52},
+      {"qId" : {"$oid":"b00000000000000000000019"},
+      "value": 81,
+      "prediction": 61},
+      {"qId" : {"$oid":"b00000000000000000000020"},
+      "value": 63,
+      "prediction": 52}
+      ]
+    },
+    {
+      "userId":{"$oid":"000000000000000000000003"},
+      "answers":[
+      {"qId" : {"$oid":"b00000000000000000000016"},
+      "value": 51,
+      "prediction": 74},
+      {"qId" : {"$oid":"b00000000000000000000017"},
+      "value": 93,
+      "prediction": 85},
+      {"qId" : {"$oid":"b00000000000000000000018"},
+      "value": 81,
+      "prediction": 91},
+      {"qId" : {"$oid":"b00000000000000000000019"},
+      "value": 84,
+      "prediction": 73},
+      {"qId" : {"$oid":"b00000000000000000000020"},
+      "value": 81,
+      "prediction": 92}
+      ]
+    }
+  ],
+  "surveyId": {"$oid": "f00000000000000000000004"},
+  "_id": {"$oid": "a00000000000000000000004"}
 }
