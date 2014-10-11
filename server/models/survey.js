@@ -18,14 +18,18 @@ Survey.create = function(o, cb){
 Survey.all = function(user, cb){
   var results = [];
   Survey.collection.find().toArray(function(err, surveys){
-    user.taken.forEach(function(survey){
-      for(var i = 0; i<surveys.length; i++){
-        if(surveys[i]._id.toString() !== survey){
-          results.push(surveys[i]);
+    if(user.taken){
+      user.taken.forEach(function(survey){
+        for(var i = 0; i<surveys.length; i++){
+          if(surveys[i]._id.toString() !== survey){
+            results.push(surveys[i]);
+          }
         }
-      }
-    });
-    cb(null, results);
+      });
+      cb(null, results);
+    }else{
+      cb(null, surveys);
+    }
   });
 };
 
