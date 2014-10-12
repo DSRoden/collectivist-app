@@ -1,8 +1,8 @@
 'use strict';
 
-var Mongo = require('mongodb');
-    //async = require('async'),
-    //_     = require('underscore-contrib');
+var Mongo = require('mongodb'),
+    async = require('async'),
+    _     = require('underscore-contrib');
 
 
 function Survey(){
@@ -16,11 +16,25 @@ Survey.create = function(o, cb){
   Survey.collection.save(o, cb);
 };
 
+Survey.all = function(user, cb){
+  Survey.collection.find().toArray(function(err, surveys){
+    console.log('all surveys>>>>>>>>', surveys);
+    var surveyIds = _.map(surveys, iterator);
+    console.log('surveyIds>>>>>>>>>>', surveyIds);
+    var surveysNotTakenIds = _.difference(surveyIds, user.taken);
+    console.log('surveysNotTakenIds>>>>>>>>', surveysNotTakenIds);
+    async.map(surveysNotTakenIds, iterator2, function(err, results){
+      console.log('results>>>>>>>>', results);
+       cb(null, results);
+    });
+  });
+ };
+
 Survey.allTaken = function(user, cb){
   var results = [];
   Survey.collection.find().toArray(function(err, surveys){
     user.taken.forEach(function(survey){
-      for(var i = 0; i<surveys.length; i++){
+      for(var i = 0; i < surveys.length; i++){
         if(surveys[i]._id.toString() === survey){
           results.push(surveys[i]);
         }
@@ -30,23 +44,38 @@ Survey.allTaken = function(user, cb){
   });
 };
 
-Survey.all = function(user, cb){
-  var results = [];
-  Survey.collection.find().toArray(function(err, surveys){
-    if(user.taken){
-      user.taken.forEach(function(survey){
-        for(var i = 0; i<surveys.length; i++){
-          if(surveys[i]._id.toString() !== survey){
-            results.push(surveys[i]);
-          }
-        }
-      });
-      cb(null, results);
-    }else{
-      cb(null, surveys);
-    }
-  });
-};
+
+//Survey.allTaken = function(user, cb){
+  //var results = [];
+  //Survey.collection.find().toArray(function(err, surveys){
+    //user.taken.forEach(function(survey){
+      //for(var i = 0; i<surveys.length; i++){
+        //if(surveys[i]._id.toString() === survey){
+          //results.push(surveys[i]);
+        //}
+      //}
+    //});
+    //cb(null, results);
+  //});
+//};
+
+//Survey.all = function(user, cb){
+  //var results = [];
+  //Survey.collection.find().toArray(function(err, surveys){
+    //if(user.taken){
+      //user.taken.forEach(function(survey){
+        //for(var i = 0; i<surveys.length; i++){
+          //if(surveys[i]._id.toString() !== survey){
+            //results.push(surveys[i]);
+          //}
+        //}
+      //});
+      //cb(null, results);
+    //}else{
+      //cb(null, surveys);
+    //}
+  //});
+//};
 
 Survey.findById = function(id, cb){
   var _id = Mongo.ObjectID(id);
@@ -68,8 +97,8 @@ Survey.getSurveyWithQuestions = function(id, cb){
 
 module.exports = Survey;
 
-// private functions
-/*
+ //helper functions
+
 function iterator(survey, cb){
   console.log('inside iterator1, survey >>>>>>>', survey);
   var surveyId = survey._id.toString();
@@ -83,4 +112,4 @@ function iterator2(notTakenId, cb){
   cb(null, survey);
   });
 }
-*/
+
