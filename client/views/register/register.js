@@ -5,19 +5,31 @@
   .controller('RegisterCtrl', ['$scope', '$location', 'User', function($scope, $location, User){
     $scope.user = {};
 
-    function success(response){
+    function regSuccess(response){
       toastr.success('User successfully registered.');
-      $location.path('/login');
+      User.login($scope.user).then(success, failure);
     }
 
-    function failure(response){
+    function regFailure(response){
       toastr.error('Error during user registration, try again.');
       $scope.user = {};
     }
 
     $scope.register = function(){
-      User.register($scope.user).then(success, failure);
+      User.register($scope.user).then(regSuccess, regFailure);
     };
+
+    //LOG IN FUNCTIONS
+    function success(response){
+      toastr.success('Successful login.');
+      $location.path('/');
+    }
+
+    function failure(response){
+      toastr.error('Error during login, try again.');
+      $scope.user = {};
+    }
+
   }]);
 })();
 
