@@ -1,7 +1,12 @@
-h3 Register
+br
+br
+br
+br
 
 .row
-  .col-xs-3
+  .col-xs-4
+  .col-xs-4
+    h3 Register
     form(role='form', novalidate, name='userForm')
       .form-group
         label(for='email') Email
@@ -10,5 +15,5 @@ h3 Register
         label(for='password') Password
         input.form-control#password(type='password', name='password', ng-model='user.password', required, ng-minlength='3')
       button.btn.btn-primary(ng-show='userForm.$valid', ng-click='register()') Register
-  .col-xs-9
+  .col-xs-4
 

@@ -1,3 +1,5 @@
+br
+br
 h1 Results for the {{survey.title}} survey
 
 .container-fluid
@@ -13,7 +15,7 @@ h1 Results for the {{survey.title}} survey
           tbody
             tr(ng-repeat='r in results', ng-class='{last: r.userId == user._id}')
               td U{{$index+1}}
-              td.poor(ng-repeat='q in r.scores track by $index', ng-class='{great: q > -20 && q < 20, good: q > -40  && q < 40, okay: q > -60 && q < 60}') {{q}}
+              td.poor(ng-repeat='q in r.scores track by $index', ng-class='{great: q > -2 && q < 2, good: q > -10  && q < 10, okay: q > -20 && q < 20}') {{q}}
               //-td(ng-repeat='q in r.scores track by $index', ng-class='{great: q > -20  && q < -20, good: Math.abs(q) > 20 && Math.abs(q) < 40}') {{q}}
       br
       h3 What am I looking at?
