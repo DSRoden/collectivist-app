@@ -1,46 +1,16 @@
-## name of project
-### Code Badges
-build status icon
-coverage status icon
+## COLLECTIVIST
 
-### Screenshots
-![Image1](https://raw.githubusercontent.com/nss-cohort-2014-06-07/express-template/master/docs/screenshots/one.jpg)
-![Image2](https://raw.githubusercontent.com/nss-cohort-2014-06-07/express-template/master/docs/screenshots/two.jpg)
+### Link
+collectivist.failureengine.com
 
 ### Description
-write a description about your project
-
-### Models
-```
-Model 1
-```
-
-```
-Model 2
-```
-
-### Database
-```
-Collecion 1
-```
-
-```
-Collection 2
-```
+Take a survey, see how well you can predict what other people think.
 
 ### Features
-- [x] Feature 1
-- [ ] Feature 2
-- [x] Feature 3
+- [x] Take a survey
+- [ ] Predict what other people's responses will be
+- [x] Check your dashboard to see your Sync Score (whether yoru prediction was right or wrong) evolves over time
 
-### Running Tests
-```bash
-$ npm install
-$ npm test
-```
-
-### Contributors
-- [Chyld Medford](https://github.com/chyld)
 
 ### License
 [MIT](LICENSE)
